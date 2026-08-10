@@ -8,19 +8,19 @@ CREATE TABLE "arkusze" (
 	"rok" INTEGER NOT NULL,
 	"sesja" INTEGER NOT NULL,
 	"numer" INTEGER NOT NULL,
+	"port"	INTEGER NOT NULL UNIQUE,
 	PRIMARY KEY("id")
 );
 
 CREATE TABLE "przedmioty" (
-	"id"	INTEGER NOT NULL UNIQUE,
+	"id"	TEXT NOT NULL UNIQUE,
 	"nazwa"	TEXT NOT NULL UNIQUE,
-	"krotka_nazwa"	TEXT NOT NULL UNIQUE,
-	PRIMARY KEY("id" AUTOINCREMENT)
+	PRIMARY KEY("id")
 );
 
 CREATE TABLE "arkusz-przedmiot" (
-	"id_arkusza"	INTEGER NOT NULL,
-	"id_przedmiotu"	INTEGER NOT NULL,
+	"id_arkusza"	TEXT NOT NULL,
+	"id_przedmiotu"	TEXT NOT NULL,
 	FOREIGN KEY("id_arkusza") REFERENCES "arkusze"("id"),
 	FOREIGN KEY("id_przedmiotu") REFERENCES "przedmioty"("id")
 );
@@ -31,10 +31,10 @@ CREATE TABLE "config" (
 	PRIMARY KEY("id")
 );
 
-INSERT INTO "przedmioty" ("id", "nazwa", "krotka_nazwa") VALUES
-(NULL, "Projektowanie stron internetowych", "PSI"),
-(NULL, "Projektowanie aplikacji internetowych", "PAI"),
-(NULL, "Tworzenie i administrowanie bazami danych", "TIABD"),
-(NULL, "Dom", "DOM");
+INSERT INTO "przedmioty" ("id", "nazwa") VALUES
+("PSI", "Projektowanie stron internetowych"),
+("PAI", "Projektowanie aplikacji internetowych"),
+("TIABD", "Tworzenie i administrowanie bazami danych"),
+("DOM", "Dom");
 
 INSERT INTO "config" ("id") VALUES ("default");

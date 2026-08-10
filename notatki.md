@@ -4,6 +4,4 @@ Statusy:
 
 - niedokonczone
 
-- do-oceny
-
 - zakonczone

@@ -1,6 +1,6 @@
 import os
 import sqlite3
-
+import random
 def main():
     conn = sqlite3.connect('database.sqlite3')
     cursor = conn.cursor()
@@ -82,9 +82,20 @@ def main():
                     plik_archiwum = None
                     print(f"(plik_archiwum) {id} Nie odnaleziono archiwum !")
 
+                # Pole port
+
+                cursor.execute('SELECT port FROM arkusze;')
+                rows = cursor.fetchall()
+                zajete = []
+                if len(rows) >= 1:
+                    zajete = [int(row[0]) for row in rows]
+                port = random.randint(20000, 30000)
+                while port in zajete:
+                     port = random.randint(20000, 30000)
+
                 # Zapytanie
 
-                cursor.execute('INSERT INTO arkusze ("id", "sciezka", "plik_arkusz", "plik_ocenianie", "plik_archiwum", "rok", "sesja", "numer") VALUES (?,?,?,?,?,?,?,?);', (id, sciezka, plik_arkusz, plik_ocenianie, plik_archiwum, int(numer_rok), int(numer_sesja), int(numer_arkusz)))
+                cursor.execute('INSERT INTO arkusze ("id", "sciezka", "plik_arkusz", "plik_ocenianie", "plik_archiwum", "rok", "sesja", "numer", "port") VALUES (?,?,?,?,?,?,?,?,?);', (id, sciezka, plik_arkusz, plik_ocenianie, plik_archiwum, int(numer_rok), int(numer_sesja), int(numer_arkusz), port))
                 odnaleziono += 1
 
     print(f"Nowo odnalezionych arkuszy: {odnaleziono}")

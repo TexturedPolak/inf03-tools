@@ -1,4 +1,5 @@
 import sqlite3
+import subprocess
 
 def main():
     print("Podaj id arkusza do usunięcia:")
@@ -11,6 +12,8 @@ def main():
     rows = cursor.fetchall()
     if len(rows) >= 1:
         cursor.execute('DELETE FROM arkusze WHERE id = ?;', (id,))
+        cursor.execute('DELETE FROM "arkusz-przedmiot" WHERE "id_arkusza" = ?',(id,))
+        subprocess.run(("podman","rm","-f", id))
         print(f"Usunięto {id}")
     else:
         print(f"{id} nie istnieje !")

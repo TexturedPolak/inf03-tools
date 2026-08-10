@@ -8,6 +8,7 @@ import delete
 import sqlite3
 import ls
 import find
+import start
 
 #arguments = sys.argv
 #if len(arguments) >=2:
@@ -35,13 +36,14 @@ print("Skrypt ułatwia pracę z repozytorium.")
 print("Co dzisiaj robimy?")
 if not inited:
     print("* Zainicjalizuj najpierw bazę danych poleceniem INIT !")
+url = "/"
 while True:
     inited = check_init()
     print("")
     if not inited:
         komenda = input("(INIT ONLY)>> ")
     if inited:
-        komenda = input("(/)>> ")
+        komenda = input(f"({url})>> ")
     print("\033c", end='')
     match komenda.lower():
         case "pomoc" | "help" if inited:
@@ -66,6 +68,8 @@ while True:
             print("nierozpoczete", "niedokonczone", "zakonczone")
         case "find" if inited:
             find.main()
+        case "start" if inited:
+            url = start.main()
         case _ if inited:
             print(f"Nie odnaleziono komendy {komenda.upper()} !")
         case _:
