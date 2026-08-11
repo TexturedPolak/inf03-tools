@@ -12,6 +12,7 @@ import start
 import start_last
 import pause
 import end
+import repair
 
 #arguments = sys.argv
 #if len(arguments) >=2:
@@ -89,6 +90,8 @@ while True:
         case "end" if inited and url != "/":
             if end.main() == True:
                 url = "/"
+        case "repair" if inited and url != "/":
+            repair.main()
         case _ if inited:
             print(f"Nie odnaleziono komendy {komenda.upper()} !")
         case _:
