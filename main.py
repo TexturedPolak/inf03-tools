@@ -10,6 +10,8 @@ import ls
 import find
 import start
 import start_last
+import pause
+import end
 
 #arguments = sys.argv
 #if len(arguments) >=2:
@@ -81,6 +83,12 @@ while True:
             url = start.main()
         case "start last" if inited:
             url = start_last.main()
+        case "pause" if inited and url != "/":
+            if pause.main() == True:
+                url = "/"
+        case "end" if inited and url != "/":
+            if end.main() == True:
+                url = "/"
         case _ if inited:
             print(f"Nie odnaleziono komendy {komenda.upper()} !")
         case _:

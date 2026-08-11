@@ -17,6 +17,6 @@ def main():
     print("FIND: Szuka arkusza po roku, miesiącu, numerze.")
     print("START: Rozpoczyna / wznawia pracę z arkuszem. Wymaga id arkusza.")
     print("START LAST: Wznawia pracę nad ostatnio używanym arkuszem.")
-    print("\tPAUSE: Kończy pracę z arkuszem w stanie niedokonczone.") # TODO
-    print("\tEND: Kończy pracę z arkuszem stanie zakonczone.") # TODO
+    print("\tPAUSE: Kończy pracę z arkuszem w stanie niedokonczone.")
+    print("\tEND: Kończy pracę z arkuszem stanie zakonczone.")
     print("\tREPAIR: Resetuje kontener do stanu zerowego.") # TODO
