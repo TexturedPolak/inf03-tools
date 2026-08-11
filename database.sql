@@ -28,6 +28,7 @@ CREATE TABLE "arkusz-przedmiot" (
 CREATE TABLE "config" (
 	"id"	TEXT NOT NULL UNIQUE,
 	"directory"	TEXT UNIQUE,
+	"last"	TEXT,
 	PRIMARY KEY("id")
 );
 

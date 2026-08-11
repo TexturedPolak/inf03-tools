@@ -9,6 +9,7 @@ import sqlite3
 import ls
 import find
 import start
+import start_last
 
 #arguments = sys.argv
 #if len(arguments) >=2:
@@ -58,18 +59,28 @@ while True:
             delete.main()
         case "ls" if inited:
             ls.main()
-        case "ls nierozpoczete" if inited:
+        case "ls s nierozpoczete" if inited:
             ls.main("nierozpoczete")
-        case "ls niedokonczone" if inited:
+        case "ls s niedokonczone" if inited:
             ls.main("niedokonczone")
-        case "ls zakonczone" if inited:
+        case "ls s zakonczone" if inited:
             ls.main("zakonczone")
         case "ls status":
             print("nierozpoczete", "niedokonczone", "zakonczone")
+        case "ls p psi":
+            ls.przedmiot("PSI")
+        case "ls p pai":
+            ls.przedmiot("PAI")
+        case "ls p tiabd":
+            ls.przedmiot("TIABD")
+        case "ls p dom":
+            ls.przedmiot("DOM")
         case "find" if inited:
             find.main()
         case "start" if inited:
             url = start.main()
+        case "start last" if inited:
+            url = start_last.main()
         case _ if inited:
             print(f"Nie odnaleziono komendy {komenda.upper()} !")
         case _:

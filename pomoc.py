@@ -10,11 +10,13 @@ def main():
     print("Pomoc systemu Pracownia INF03:")
     print("POMOC/HELP: Wyświetla pomoc.")
     print("SCAN: Skanuje foldery w poszukiwaniu nowych arkuszy.")
-    print("DEL: Usuwa dany arkusz z bazy.") # TODO: usuwanie kontenera
+    print("DEL: Usuwa dany arkusz z bazy.")
     print("LS: Wyświetla dostępne arkusze w kolejności od najstarszego do najnowszego.")
-    print("LS STATUS: Wyświetla dostępne arkusze w kolejności od najstarszego do najnowszego ze wskazanym statusem.")
-    print("FIND: Szuka arkusza po roku, miesiącu, numerze.") # TODO: szukanie po przedmiocie
+    print("LS S <STATUS>: Wyświetla arkusze z danym statusem w kolejności od najstarszego do najnowszego ze wskazanym statusem.")
+    print("LS P <PRZEDMIOT>: Wyświetla arkusze z danym przedmiotem w kolejności od najstarszego do najnowszego ze wskazanym statusem.")
+    print("FIND: Szuka arkusza po roku, miesiącu, numerze.")
     print("START: Rozpoczyna / wznawia pracę z arkuszem. Wymaga id arkusza.")
-    print("START LAST: Wznawia pracę nad ostatnio używanym arkuszem.") # TODO
+    print("START LAST: Wznawia pracę nad ostatnio używanym arkuszem.")
     print("\tPAUSE: Kończy pracę z arkuszem w stanie niedokonczone.") # TODO
     print("\tEND: Kończy pracę z arkuszem stanie zakonczone.") # TODO
+    print("\tREPAIR: Resetuje kontener do stanu zerowego.") # TODO

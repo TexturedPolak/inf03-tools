@@ -68,6 +68,14 @@ def main():
 
     rows = cursor.fetchall()
     for row in rows:
-        print(f"{row[0]} : {row[1]}")
+        id = row[0]
+        cursor.execute('SELECT przedmioty.id FROM przedmioty LEFT JOIN "arkusz-przedmiot" ON "arkusz-przedmiot".id_przedmiotu = przedmioty.id LEFT JOIN arkusze ON arkusze.id = "arkusz-przedmiot".id_arkusza WHERE arkusze.id = ?;', (id,))
+        przedmioty_rows = cursor.fetchall()
+        przedmioty = ""
+        for przedmiot_row in przedmioty_rows:
+            przedmioty += przedmiot_row[0] + " "
+        
+        print(f"{row[0]} : {row[1]} {przedmioty}")
+        #print(f"{row[0]} : {row[1]}")
     conn.commit()
     conn.close()
