@@ -19,4 +19,4 @@ def main():
     print("START LAST: Wznawia pracę nad ostatnio używanym arkuszem.")
     print("\tPAUSE: Kończy pracę z arkuszem w stanie niedokonczone.")
     print("\tEND: Kończy pracę z arkuszem stanie zakonczone.")
-    print("\tREPAIR: Resetuje kontener do stanu zerowego.") # TODO
+    print("\tREPAIR: Resetuje kontener do stanu zerowego.")
